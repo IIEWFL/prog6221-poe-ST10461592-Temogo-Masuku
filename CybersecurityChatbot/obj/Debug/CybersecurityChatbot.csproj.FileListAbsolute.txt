@@ -1,0 +1,17 @@
+C:\Users\TEMOGO\OneDrive\Documents\prog6221-part-1-ST10461592-Temogo-Masuku\CybersecurityChatbot\bin\Debug\CybersecurityChatbot.exe.config
+C:\Users\TEMOGO\OneDrive\Documents\prog6221-part-1-ST10461592-Temogo-Masuku\CybersecurityChatbot\bin\Debug\CybersecurityChatbot.exe
+C:\Users\TEMOGO\OneDrive\Documents\prog6221-part-1-ST10461592-Temogo-Masuku\CybersecurityChatbot\bin\Debug\CybersecurityChatbot.pdb
+C:\Users\TEMOGO\OneDrive\Documents\prog6221-part-1-ST10461592-Temogo-Masuku\CybersecurityChatbot\obj\Debug\CybersecurityChatbot.csproj.AssemblyReference.cache
+C:\Users\TEMOGO\OneDrive\Documents\prog6221-part-1-ST10461592-Temogo-Masuku\CybersecurityChatbot\obj\Debug\MainWindow.baml
+C:\Users\TEMOGO\OneDrive\Documents\prog6221-part-1-ST10461592-Temogo-Masuku\CybersecurityChatbot\obj\Debug\MainWindow.g.cs
+C:\Users\TEMOGO\OneDrive\Documents\prog6221-part-1-ST10461592-Temogo-Masuku\CybersecurityChatbot\obj\Debug\App.g.cs
+C:\Users\TEMOGO\OneDrive\Documents\prog6221-part-1-ST10461592-Temogo-Masuku\CybersecurityChatbot\obj\Debug\CybersecurityChatbot_MarkupCompile.cache
+C:\Users\TEMOGO\OneDrive\Documents\prog6221-part-1-ST10461592-Temogo-Masuku\CybersecurityChatbot\obj\Debug\CybersecurityChatbot.g.resources
+C:\Users\TEMOGO\OneDrive\Documents\prog6221-part-1-ST10461592-Temogo-Masuku\CybersecurityChatbot\obj\Debug\CybersecurityChatbot.Properties.Resources.resources
+C:\Users\TEMOGO\OneDrive\Documents\prog6221-part-1-ST10461592-Temogo-Masuku\CybersecurityChatbot\obj\Debug\CybersecurityChatbot.csproj.GenerateResource.cache
+C:\Users\TEMOGO\OneDrive\Documents\prog6221-part-1-ST10461592-Temogo-Masuku\CybersecurityChatbot\obj\Debug\CybersecurityChatbot.csproj.CoreCompileInputs.cache
+C:\Users\TEMOGO\OneDrive\Documents\prog6221-part-1-ST10461592-Temogo-Masuku\CybersecurityChatbot\obj\Debug\CybersecurityChatbot.exe
+C:\Users\TEMOGO\OneDrive\Documents\prog6221-part-1-ST10461592-Temogo-Masuku\CybersecurityChatbot\obj\Debug\CybersecurityChatbot.pdb
+C:\Users\TEMOGO\OneDrive\Documents\prog6221-part-1-ST10461592-Temogo-Masuku\CybersecurityChatbot\obj\Debug\CybersecurityChatbot.exe.config
+C:\Users\TEMOGO\OneDrive\Documents\prog6221-part-1-ST10461592-Temogo-Masuku\CybersecurityChatbot\obj\Debug\SplashWindow.baml
+C:\Users\TEMOGO\OneDrive\Documents\prog6221-part-1-ST10461592-Temogo-Masuku\CybersecurityChatbot\obj\Debug\SplashWindow.g.cs

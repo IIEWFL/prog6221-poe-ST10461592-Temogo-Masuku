@@ -1,0 +1,429 @@
+﻿<Window x:Class="CybersecurityChatbot.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Cybersecurity Learning Assistant" 
+        Height="650" Width="900"
+        WindowStartupLocation="CenterScreen"
+        Background="White">
+
+    <TabControl Name="MainTabControl" Background="LightGray">
+
+        <!-- Chat Tab -->
+        <TabItem Header="Chat" FontSize="14">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Chat Display Area -->
+                <RichTextBox Name="ChatDisplay" 
+                           Grid.Row="0" 
+                           Margin="15"
+                           IsReadOnly="True"
+                           Background="White"
+                           FontFamily="Arial"
+                           FontSize="13"
+                           VerticalScrollBarVisibility="Auto"
+                           BorderBrush="DarkGray"
+                           BorderThickness="1"/>
+
+                <!-- Input Area -->
+                <Grid Grid.Row="1" Margin="15">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBox Name="UserInput" 
+                           Grid.Column="0"
+                           Height="35"
+                           FontSize="14"
+                           VerticalContentAlignment="Center"
+                           Padding="8"
+                           BorderBrush="Gray"
+                           BorderThickness="1"
+                           KeyDown="UserInput_KeyDown"/>
+
+                    <Button Name="SendButton" 
+                          Grid.Column="1"
+                          Content="Send"
+                          Width="80"
+                          Height="35"
+                          Margin="10,0,0,0"
+                          Background="SteelBlue"
+                          Foreground="White"
+                          FontSize="14"
+                          Click="SendButton_Click"/>
+                </Grid>
+
+                <!-- Help Text -->
+                <TextBlock Grid.Row="2" 
+                         Margin="15,5,15,15"
+                         FontSize="12"
+                         Foreground="Gray"
+                         TextWrapping="Wrap"
+                         Text="Learn about: Password Safety, Phishing, Safe Browsing, Malware | Commands: 'help', 'tasks', 'quiz', 'exit'"/>
+            </Grid>
+        </TabItem>
+
+        <!-- Task Manager Tab -->
+        <TabItem Header="Tasks" FontSize="14">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Task List Side -->
+                <Grid Grid.Column="0" Margin="15">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" 
+                             Text="Your Security Tasks" 
+                             FontSize="18" 
+                             FontWeight="Bold" 
+                             Margin="0,0,0,15"/>
+
+                    <ListView Name="TaskListView" 
+                            Grid.Row="1"
+                            Background="White"
+                            BorderBrush="Gray"
+                            BorderThickness="1"
+                            FontSize="13">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Status" Width="60"/>
+                                <GridViewColumn Header="Task" Width="200"/>
+                                <GridViewColumn Header="Description" Width="180"/>
+                                <GridViewColumn Header="Reminder" Width="100"/>
+                                <GridViewColumn Header="Created" Width="80"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+
+                    <TextBlock Name="TaskStatsTextBlock"
+                             Grid.Row="2"
+                             Margin="0,15,0,0"
+                             FontSize="13"
+                             Foreground="DarkBlue"
+                             Text="Task statistics will appear here"/>
+                </Grid>
+
+                <!-- Task Input Side -->
+                <Border Grid.Column="1" 
+                      Background="WhiteSmoke" 
+                      BorderBrush="Gray" 
+                      BorderThickness="1" 
+                      Margin="0,15,15,15">
+                    <StackPanel Margin="20">
+
+                        <TextBlock Text="Add New Task" 
+                                 FontSize="16" 
+                                 FontWeight="Bold" 
+                                 Margin="0,0,0,20"/>
+
+                        <!-- Task Title -->
+                        <TextBlock Text="Task Title:" FontWeight="Bold" Margin="0,0,0,5"/>
+                        <TextBox Name="TaskTitleTextBox" 
+                               Height="30" 
+                               Margin="0,0,0,15"
+                               FontSize="13"
+                               Padding="5"/>
+
+                        <!-- Description -->
+                        <TextBlock Text="Description:" FontWeight="Bold" Margin="0,0,0,5"/>
+                        <TextBox Name="TaskDescriptionTextBox" 
+                               Height="70"
+                               TextWrapping="Wrap"
+                               AcceptsReturn="True"
+                               VerticalScrollBarVisibility="Auto"
+                               Margin="0,0,0,15"
+                               FontSize="13"
+                               Padding="5"/>
+
+                        <!-- Quick Add Dropdown -->
+                        <TextBlock Text="Common Tasks:" FontWeight="Bold" Margin="0,0,0,5"/>
+                        <ComboBox Name="PredefinedTasksComboBox"
+                                Height="30"
+                                Margin="0,0,0,20"
+                                FontSize="13"
+                                SelectionChanged="PredefinedTasksComboBox_SelectionChanged">
+                            <ComboBoxItem Content="Select a common task..." IsSelected="True"/>
+                            <ComboBoxItem Content="Enable Two-Factor Authentication"/>
+                            <ComboBoxItem Content="Update All Passwords"/>
+                            <ComboBoxItem Content="Review Privacy Settings"/>
+                            <ComboBoxItem Content="Install Security Updates"/>
+                            <ComboBoxItem Content="Backup Important Data"/>
+                            <ComboBoxItem Content="Review Account Activity"/>
+                            <ComboBoxItem Content="Set Up Password Manager"/>
+                            <ComboBoxItem Content="Enable Automatic Updates"/>
+                            <ComboBoxItem Content="Review App Permissions"/>
+                            <ComboBoxItem Content="Secure Home Network"/>
+                        </ComboBox>
+
+                        <!-- Reminder Checkbox -->
+                        <CheckBox Name="EnableReminderCheckBox" 
+                                Content="Set Reminder" 
+                                FontWeight="Bold"
+                                Margin="0,0,0,10"
+                                FontSize="13"
+                                Checked="EnableReminderCheckBox_Checked"
+                                Unchecked="EnableReminderCheckBox_Unchecked"/>
+
+                        <DatePicker Name="ReminderDatePicker"
+                                  Height="30"
+                                  Margin="0,0,0,25"
+                                  FontSize="13"
+                                  IsEnabled="False"/>
+
+                        <!-- Buttons -->
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Button Name="AddTaskButton"
+                                  Content="Add Task"
+                                  Width="75"
+                                  Height="35"
+                                  Background="DarkGreen"
+                                  Foreground="White"
+                                  Margin="5"
+                                  FontSize="13"
+                                  Click="AddTaskButton_Click"/>
+
+                            <Button Name="CompleteTaskButton"
+                                  Content="Complete"
+                                  Width="75"
+                                  Height="35"
+                                  Background="SteelBlue"
+                                  Foreground="White"
+                                  Margin="5"
+                                  FontSize="13"
+                                  Click="CompleteTaskButton_Click"/>
+
+                            <Button Name="DeleteTaskButton"
+                                  Content="Delete"
+                                  Width="75"
+                                  Height="35"
+                                  Background="DarkRed"
+                                  Foreground="White"
+                                  Margin="5"
+                                  FontSize="13"
+                                  Click="DeleteTaskButton_Click"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </TabItem>
+
+        <!-- Quiz Tab -->
+        <TabItem Header="Quiz" FontSize="14">
+            <Grid Background="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Quiz Header -->
+                <Border Grid.Row="0" Background="SteelBlue" Margin="0,0,0,15">
+                    <StackPanel Margin="25">
+                        <TextBlock Name="QuizTitleTextBlock"
+                                 Text="Cybersecurity Knowledge Quiz"
+                                 FontSize="22"
+                                 FontWeight="Bold"
+                                 Foreground="White"
+                                 HorizontalAlignment="Center"/>
+                        <TextBlock Name="QuizSubtitleTextBlock"
+                                 Text="Test your cybersecurity knowledge"
+                                 FontSize="14"
+                                 Foreground="LightBlue"
+                                 HorizontalAlignment="Center"
+                                 Margin="0,8,0,0"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Quiz Content Area -->
+                <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                    <Grid Name="QuizContentGrid" Margin="25">
+
+                        <!-- Welcome Screen -->
+                        <StackPanel Name="WelcomePanel" Visibility="Visible">
+                            <TextBlock Text="Ready to Test Your Knowledge?"
+                                     FontSize="20"
+                                     FontWeight="Bold"
+                                     HorizontalAlignment="Center"
+                                     Margin="0,30,0,25"/>
+
+                            <TextBlock TextWrapping="Wrap"
+                                     FontSize="14"
+                                     HorizontalAlignment="Center"
+                                     TextAlignment="Center"
+                                     Margin="0,0,0,40">
+                                This quiz covers essential cybersecurity topics including:<LineBreak/>
+                                Password Safety, Phishing, Safe Browsing, Social Engineering<LineBreak/><LineBreak/>
+                                You'll answer 10 questions and get feedback on your answers.<LineBreak/>
+                                Let's see how much you know about staying safe online!
+                            </TextBlock>
+
+                            <Button Name="StartQuizButton"
+                                  Content="Start Quiz"
+                                  FontSize="16"
+                                  FontWeight="Bold"
+                                  Padding="25,12"
+                                  Background="DarkGreen"
+                                  Foreground="White"
+                                  HorizontalAlignment="Center"
+                                  Click="StartQuizButton_Click"/>
+                        </StackPanel>
+
+                        <!-- Question Panel -->
+                        <StackPanel Name="QuestionPanel" Visibility="Collapsed">
+                            <!-- Progress -->
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,25">
+                                <TextBlock Name="QuestionCounterTextBlock"
+                                         Text="Question 1 of 10"
+                                         FontSize="14"
+                                         FontWeight="Bold"
+                                         VerticalAlignment="Center"/>
+                                <ProgressBar Name="QuizProgressBar"
+                                           Width="250"
+                                           Height="12"
+                                           Margin="25,0,0,0"
+                                           Minimum="0"
+                                           Maximum="10"
+                                           Value="0"
+                                           Background="LightGray"
+                                           Foreground="SteelBlue"/>
+                            </StackPanel>
+
+                            <!-- Question -->
+                            <Border Background="WhiteSmoke" 
+                                  BorderBrush="Gray" 
+                                  BorderThickness="1" 
+                                  Padding="25" 
+                                  Margin="0,0,0,25">
+                                <TextBlock Name="QuestionTextBlock"
+                                         Text="Question will appear here"
+                                         FontSize="16"
+                                         TextWrapping="Wrap"
+                                         FontWeight="SemiBold"/>
+                            </Border>
+
+                            <!-- Answer Options -->
+                            <StackPanel Name="AnswerOptionsPanel">
+                                <!-- Options will be added dynamically -->
+                            </StackPanel>
+
+                            <!-- Feedback Area -->
+                            <Border Name="FeedbackBorder"
+                                  Background="LightYellow"
+                                  BorderBrush="Orange"
+                                  BorderThickness="2"
+                                  Padding="20"
+                                  Margin="0,25,0,0"
+                                  Visibility="Collapsed">
+                                <StackPanel>
+                                    <TextBlock Name="FeedbackHeaderTextBlock"
+                                             FontSize="16"
+                                             FontWeight="Bold"/>
+                                    <TextBlock Name="FeedbackTextBlock"
+                                             FontSize="14"
+                                             TextWrapping="Wrap"
+                                             Margin="0,10,0,0"/>
+                                </StackPanel>
+                            </Border>
+
+                            <!-- Next Button -->
+                            <Button Name="NextQuestionButton"
+                                  Content="Next Question"
+                                  FontSize="14"
+                                  FontWeight="Bold"
+                                  Padding="20,10"
+                                  Background="SteelBlue"
+                                  Foreground="White"
+                                  HorizontalAlignment="Center"
+                                  Margin="0,25,0,0"
+                                  Visibility="Collapsed"
+                                  Click="NextQuestionButton_Click"/>
+                        </StackPanel>
+
+                        <!-- Results Panel -->
+                        <StackPanel Name="ResultsPanel" Visibility="Collapsed">
+                            <TextBlock Text="Quiz Complete!"
+                                     FontSize="24"
+                                     FontWeight="Bold"
+                                     HorizontalAlignment="Center"
+                                     Margin="0,30,0,25"/>
+
+                            <Border Background="WhiteSmoke" 
+                                  BorderBrush="Gray" 
+                                  BorderThickness="2" 
+                                  Padding="35" 
+                                  HorizontalAlignment="Center">
+                                <StackPanel>
+                                    <TextBlock Name="ScoreTextBlock"
+                                             Text="Your Score: 0/10"
+                                             FontSize="20"
+                                             FontWeight="Bold"
+                                             HorizontalAlignment="Center"
+                                             Margin="0,0,0,15"/>
+
+                                    <TextBlock Name="ScorePercentageTextBlock"
+                                             Text="0%"
+                                             FontSize="36"
+                                             FontWeight="Bold"
+                                             HorizontalAlignment="Center"
+                                             Margin="0,0,0,15"/>
+
+                                    <TextBlock Name="ScoreFeedbackTextBlock"
+                                             Text="Feedback will appear here"
+                                             FontSize="16"
+                                             TextWrapping="Wrap"
+                                             TextAlignment="Center"
+                                             HorizontalAlignment="Center"
+                                             Margin="0,0,0,20"/>
+                                </StackPanel>
+                            </Border>
+
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,35,0,0">
+                                <Button Name="RetakeQuizButton"
+                                      Content="Retake Quiz"
+                                      FontSize="14"
+                                      FontWeight="Bold"
+                                      Padding="20,10"
+                                      Background="DarkGreen"
+                                      Foreground="White"
+                                      Margin="0,0,15,0"
+                                      Click="RetakeQuizButton_Click"/>
+
+                                <Button Name="BackToChatButton"
+                                      Content="Back to Chat"
+                                      FontSize="14"
+                                      FontWeight="Bold"
+                                      Padding="20,10"
+                                      Background="SteelBlue"
+                                      Foreground="White"
+                                      Margin="15,0,0,0"
+                                      Click="BackToChatButton_Click"/>
+                            </StackPanel>
+                        </StackPanel>
+
+                    </Grid>
+                </ScrollViewer>
+
+                <!-- Quiz Footer -->
+                <Border Grid.Row="2" Background="LightGray" Padding="15">
+                    <TextBlock Name="QuizStatusTextBlock"
+                             Text="Tip: Read each question carefully and think about real-world scenarios!"
+                             FontSize="12"
+                             Foreground="DarkBlue"
+                             HorizontalAlignment="Center"/>
+                </Border>
+            </Grid>
+        </TabItem>
+    </TabControl>
+</Window>
